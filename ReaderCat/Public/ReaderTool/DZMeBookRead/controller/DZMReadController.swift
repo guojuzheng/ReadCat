@@ -217,8 +217,6 @@ class DZMReadController: DZMViewController,DZMReadMenuDelegate,DZMCoverControlle
     func readMenuClickSubscribeButton(readMenu: DZMReadMenu, button: UIButton) {
         print("订阅2")
         ///悬浮菜单
-        
-        
         popupView.automaticallyHidesWhenUserTap = true
         popupView.maskViewBackgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
         popupView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.8)
@@ -227,15 +225,15 @@ class DZMReadController: DZMViewController,DZMReadMenuDelegate,DZMCoverControlle
         popupView.separatorInset = UIEdgeInsets(top: 0, left: popupView.padding.left, bottom: 0, right: popupView.padding.right)
 
         let item1 = QMUIPopupMenuItem.init(image: UIImage(named: "reword"), title: "分享本书") {
-            
+            self.popupView.hideWith(animated: true)
         }
         item1?.button.setTitleColor(UIColor.white, for: .normal)
         let item2 = QMUIPopupMenuItem.init(image: UIImage(named: "reword"), title: "加入书架") {
-            
+            self.popupView.hideWith(animated: true)
         }
         item2?.button.setTitleColor(UIColor.white, for: .normal)
         let item3 = QMUIPopupMenuItem.init(image: UIImage(named: "reword"), title: "打赏作者") {
-            
+            self.popupView.hideWith(animated: true)
         }
         item3?.button.setTitleColor(UIColor.white, for: .normal)
         
