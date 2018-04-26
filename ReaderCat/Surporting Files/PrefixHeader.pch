@@ -1,0 +1,41 @@
+//
+//  PrefixHeader.pch
+//  ReaderCat
+//
+//  Created by guojz on 2018/3/23.
+//  Copyright © 2018年 admin_gjz. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#pragma mark ================= H file =================
+#import "JCMacroHeader.h"
+
+
+#pragma mark ================= categories =================
+#import "UIImage+Extension.h"
+#import "UIButton+ImageTitleLayout.h"
+#import "QMUIFillButton+category.h"
+#pragma mark ================= The three parties =================
+#import <YYModel/YYModel.h>
+#import <ReactiveObjC/ReactiveObjC.h>
+#import <MJRefresh/MJRefresh.h>
+#import <AFNetworking/AFNetworking.h>
+#import <SDWebImage/SDWebImageManager.h>
+#import <SDWebImage/UIImageView+WebCache.h>
+#import <CocoaLumberjack/CocoaLumberjack.h>
+#import <MyLayout/MyLayout.h>
+#import "MBProgressHUD.h"
+#import "SDAutoLayout.h"
+#import <QMUIKit/QMUIKit.h>
+#import <NerdyUI/NerdyUI.h>
+#import "GMRouter.h"
+#import "DYKit.h"
+#import <IQKeyboardManager/IQKeyboardManager.h>
+#import <LEEAlert/LEEAlert.h>
+#import <WZLBadge/WZLBadgeImport.h>
+#import <Reachability/Reachability.h>
+
+#endif /* PrefixHeader_pch */
+

@@ -1,0 +1,34 @@
+#platform:ios, '8.0'
+#use_frameworks!
+#inhibit_all_warnings!
+#inhibit_warnings => true
+
+target 'ReaderCat' do
+    platform:ios, '8.0'
+    pod 'MBProgressHUD',       '~> 1.0.0'
+    pod 'LEEAlert',            '~> 1.1.4'
+    pod 'MJRefresh',           '~> 3.1.14'
+    pod 'AFNetworking',        '~> 3.0.4'
+    pod 'SDWebImage',          '~> 4.1.2'
+    pod 'YYModel',             '~> 1.0.4'
+    pod 'WZLBadge',            '~> 1.2.6'
+    pod 'MyLayout',            '~> 1.5.0'
+    pod 'CocoaLumberjack',     '~> 2.0.0-rc'
+    pod 'SDAutoLayout',        '~> 2.2.0'
+    pod 'QMUIKit',             '~> 2.1.0'
+    pod 'NerdyUI',             '~> 1.2.0'
+    pod 'GMRouter',            '~> 0.1.1'
+    pod 'SGQRCode',            '~> 2.1.8'
+    pod 'MMNumberKeyboard',    '~> 0.1.8'
+    pod 'Reachability',        '~> 3.2.0'
+    pod 'SDCycleScrollView',   '~> 1.75'
+    pod 'Bugly',	       '~> 2.5.0'
+    pod 'BAPickView',          '~> 1.1.2'
+    pod 'ReactiveObjC',        '~> 3.0.0'
+    pod 'IQKeyboardManager',   '~> 4.0.13'
+    pod 'M80AttributedLabel',  '~> 1.6.3'
+    pod 'GTSDK',               '2.1.0.0-noidfa'
+    
+    
+    #    pod 'DYKit',           '~> 1.0.1'
+end
