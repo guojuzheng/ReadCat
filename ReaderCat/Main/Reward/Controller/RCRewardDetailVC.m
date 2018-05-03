@@ -44,7 +44,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"订阅明细";
+    self.title = @"打赏明细";
     [self ShowNVBar];
     [self hideNVBarShadow];
     [self configSubviews];

@@ -13,6 +13,7 @@
 #import "RCChargeVC.h"
 #import "HomeIndexVC.h"
 #import "RCMyBookshelf.h"
+#import "RCClassify.h"
 
 @interface HomeTBVC ()
 
@@ -43,8 +44,8 @@
     
     NSString *tab_charge_selected_imageName  = @"charge";
     NSString *tab_charge_normal_imageName    = @"charge-normal";
-    NSString *tab_charge_title               = @"免费";
-    RCChargeVC *chargeVC = [[RCChargeVC alloc] init];
+    NSString *tab_charge_title               = @"书库";
+    RCClassify *chargeVC = [[RCClassify alloc] init];
     [self setChildViewController:chargeVC Image:tab_charge_normal_imageName selectedImage:tab_charge_selected_imageName title:tab_charge_title];
 
     NSString *tab_mine_selected_imageName  = @"person";

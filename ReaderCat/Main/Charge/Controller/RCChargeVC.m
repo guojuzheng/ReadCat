@@ -9,6 +9,7 @@
 #import "RCChargeVC.h"
 #import "RCChargeHeadView.h"
 #import "RCChargeCell.h"
+#import "RCRookInfoVC.h"
 
 @interface RCChargeVC ()
 @property (nonatomic, strong) NSMutableArray *dataArray;
@@ -19,7 +20,7 @@
 @implementation RCChargeVC
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self hideNVBar];
+    self.navigationController.navigationBar.hidden = YES;
     [self loadNewData];
 }
 - (void)viewWillDisappear:(BOOL)animated {
@@ -42,7 +43,7 @@
         //适配iOS11 中table的底部
         AdjustsScrollViewInsetNever(self, _myBookshelfList);
         RCChargeHeadView *headView =[RCChargeHeadView new];
-        headView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 324);
+        headView.frame = CGRectMake(0, 0, SCREEN_WIDTH,285);
         _myBookshelfList.tableHeaderView = headView;
         
         [self.view addSubview:_myBookshelfList];
@@ -53,7 +54,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configSubviews];
-  
+    self.dataArray = [NSMutableArray arrayWithObjects:@"1",@"2",@"3",@"4",@"5", nil];
 }
 
 - (void)configSubviews {
@@ -76,9 +77,8 @@
         return YES;
     }] subscribeNext:^(id x) {
         if (x != nil) {
-            //            JCInsuranceBillDetailVC *billDetailVC = [JCInsuranceBillDetailVC new];
-            //            billDetailVC.orderId = x.orderId;
-            //            [self pushVC:billDetailVC];
+            RCRookInfoVC *bookInfoVC  = [RCRookInfoVC new];
+            [self pushVC:bookInfoVC];
         }
     }];
     [[self.myBookshelfList setViewForHeaderInSection:^UIView *(UITableView *tableView, NSInteger section){
@@ -94,6 +94,14 @@
     
 }
 
+#pragma mark ================= 路由跳转 =================
++ (void)load{
+    [super load];
+    [[GMRouter shared]map:URL_SCHEMA_CHARGE toBlock:^id(NSDictionary *params) {
+        RCChargeVC  *vc = [RCChargeVC new];
+        return vc;
+    }];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

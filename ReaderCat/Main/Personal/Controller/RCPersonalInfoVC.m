@@ -24,7 +24,7 @@ static NSString *CellIdentifier = @"Cell";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"个人资料";
-    [self ShowNVBar];
+    [self showNavigationBar];
     [self hideNVBarShadow];
     [self configSubviews];
 }

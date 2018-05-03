@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0C38A522E8B9CBFAA8B114D8 /* libPods-ReaderCat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C61B2CA5781DFD1275978E28 /* libPods-ReaderCat.a */; };
+		A919CE4E20932030006024E6 /* UIView+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = A919CE4D20932030006024E6 /* UIView+Category.m */; };
 		A927A762206DE51D001A5E63 /* RCRewardMoneyView.m in Sources */ = {isa = PBXBuildFile; fileRef = A927A761206DE51D001A5E63 /* RCRewardMoneyView.m */; };
 		A927A765206DE851001A5E63 /* RCLeftAndRightButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = A927A764206DE851001A5E63 /* RCLeftAndRightButtonView.m */; };
 		A927A768206E0AB2001A5E63 /* RCRewardInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A927A767206E0AB2001A5E63 /* RCRewardInfoCell.m */; };
@@ -21,6 +22,10 @@
 		A93969E3206A35CB0019942A /* RCChartsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A93969E2206A35CB0019942A /* RCChartsVC.m */; };
 		A93969E7206A37D60019942A /* RCChartsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A93969E6206A37D60019942A /* RCChartsCell.m */; };
 		A93969EA206A503C0019942A /* RCBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A93969E9206A503C0019942A /* RCBannerView.m */; };
+		A93F95A72094122300D4753E /* RCBookRecentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A93F95A62094122300D4753E /* RCBookRecentVC.m */; };
+		A93F95AA2094224C00D4753E /* RCSettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A93F95A92094224C00D4753E /* RCSettingVC.m */; };
+		A93F95AD209425BB00D4753E /* RCShowLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A93F95AC209425BB00D4753E /* RCShowLoginManager.m */; };
+		A93F95B420947AD700D4753E /* RCClassify.m in Sources */ = {isa = PBXBuildFile; fileRef = A93F95B320947AD700D4753E /* RCClassify.m */; };
 		A944C35A206B371F00EFA2C6 /* RCBookBannerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A944C359206B371F00EFA2C6 /* RCBookBannerCell.m */; };
 		A944C35D206B43F000EFA2C6 /* RCPurchaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A944C35C206B43F000EFA2C6 /* RCPurchaseVC.m */; };
 		A944C360206B456A00EFA2C6 /* RCPurchaseMyCountView.m in Sources */ = {isa = PBXBuildFile; fileRef = A944C35F206B456A00EFA2C6 /* RCPurchaseMyCountView.m */; };
@@ -54,6 +59,17 @@
 		A9849BC72085F14E0075B804 /* RCAuthorAccountHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9849BC62085F14E0075B804 /* RCAuthorAccountHeadView.m */; };
 		A9849BC92085F37A0075B804 /* bg_Image.JPG in Resources */ = {isa = PBXBuildFile; fileRef = A9849BC82085F37A0075B804 /* bg_Image.JPG */; };
 		A9849BCC2086000D0075B804 /* JCCalenderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9849BCB2086000D0075B804 /* JCCalenderView.m */; };
+		A9868F4A20995A7F00738346 /* RCClassifyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9868F4920995A7F00738346 /* RCClassifyCell.m */; };
+		A9868F5B20996EA200738346 /* PR_project_ok@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9868F4F20996EA100738346 /* PR_project_ok@2x.png */; };
+		A9868F5C20996EA200738346 /* PR_project_ok@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9868F5020996EA100738346 /* PR_project_ok@3x.png */; };
+		A9868F5D20996EA200738346 /* PR_filter_choice@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9868F5120996EA100738346 /* PR_filter_choice@2x.png */; };
+		A9868F5E20996EA200738346 /* PR_filter_choice_top@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9868F5220996EA100738346 /* PR_filter_choice_top@2x.png */; };
+		A9868F5F20996EA200738346 /* PR_filter_choice_top@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9868F5320996EA100738346 /* PR_filter_choice_top@3x.png */; };
+		A9868F6020996EA200738346 /* PR_filter_choice@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9868F5420996EA100738346 /* PR_filter_choice@3x.png */; };
+		A9868F6120996EA200738346 /* QZConditionFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9868F5620996EA100738346 /* QZConditionFilterView.m */; };
+		A9868F6220996EA200738346 /* QZSortCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9868F5720996EA100738346 /* QZSortCell.m */; };
+		A9868F6320996EA200738346 /* QZFilterDataTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9868F5820996EA100738346 /* QZFilterDataTableView.m */; };
+		A9868F6720996F6900738346 /* RCFlitterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A9868F6620996F6900738346 /* RCFlitterVC.m */; };
 		A9C444EC2071C83D008198C7 /* RCCommentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C444EB2071C83D008198C7 /* RCCommentVC.m */; };
 		A9C444EF2071CF47008198C7 /* RCConsumeNoteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C444EE2071CF47008198C7 /* RCConsumeNoteVC.m */; };
 		A9C444F22071FCE2008198C7 /* NewestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C444F12071FCE2008198C7 /* NewestViewController.m */; };
@@ -175,6 +191,8 @@
 /* Begin PBXFileReference section */
 		43349933C0D3C2301CB59DCF /* Pods-ReaderCat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReaderCat.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReaderCat/Pods-ReaderCat.release.xcconfig"; sourceTree = "<group>"; };
 		776C84AA9215B33CCB38449D /* Pods-ReaderCat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReaderCat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReaderCat/Pods-ReaderCat.debug.xcconfig"; sourceTree = "<group>"; };
+		A919CE4C20932030006024E6 /* UIView+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Category.h"; sourceTree = "<group>"; };
+		A919CE4D20932030006024E6 /* UIView+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Category.m"; sourceTree = "<group>"; };
 		A927A760206DE51D001A5E63 /* RCRewardMoneyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCRewardMoneyView.h; sourceTree = "<group>"; };
 		A927A761206DE51D001A5E63 /* RCRewardMoneyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCRewardMoneyView.m; sourceTree = "<group>"; };
 		A927A763206DE851001A5E63 /* RCLeftAndRightButtonView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCLeftAndRightButtonView.h; sourceTree = "<group>"; };
@@ -204,6 +222,14 @@
 		A93969E6206A37D60019942A /* RCChartsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCChartsCell.m; sourceTree = "<group>"; };
 		A93969E8206A503C0019942A /* RCBannerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCBannerView.h; sourceTree = "<group>"; };
 		A93969E9206A503C0019942A /* RCBannerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCBannerView.m; sourceTree = "<group>"; };
+		A93F95A52094122300D4753E /* RCBookRecentVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCBookRecentVC.h; sourceTree = "<group>"; };
+		A93F95A62094122300D4753E /* RCBookRecentVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCBookRecentVC.m; sourceTree = "<group>"; };
+		A93F95A82094224C00D4753E /* RCSettingVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCSettingVC.h; sourceTree = "<group>"; };
+		A93F95A92094224C00D4753E /* RCSettingVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCSettingVC.m; sourceTree = "<group>"; };
+		A93F95AB209425BB00D4753E /* RCShowLoginManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCShowLoginManager.h; sourceTree = "<group>"; };
+		A93F95AC209425BB00D4753E /* RCShowLoginManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCShowLoginManager.m; sourceTree = "<group>"; };
+		A93F95B220947AD700D4753E /* RCClassify.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCClassify.h; sourceTree = "<group>"; };
+		A93F95B320947AD700D4753E /* RCClassify.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCClassify.m; sourceTree = "<group>"; };
 		A944C358206B371F00EFA2C6 /* RCBookBannerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCBookBannerCell.h; sourceTree = "<group>"; };
 		A944C359206B371F00EFA2C6 /* RCBookBannerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCBookBannerCell.m; sourceTree = "<group>"; };
 		A944C35B206B43F000EFA2C6 /* RCPurchaseVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCPurchaseVC.h; sourceTree = "<group>"; };
@@ -270,6 +296,22 @@
 		A9849BC82085F37A0075B804 /* bg_Image.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_Image.JPG; sourceTree = "<group>"; };
 		A9849BCA2086000D0075B804 /* JCCalenderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCCalenderView.h; sourceTree = "<group>"; };
 		A9849BCB2086000D0075B804 /* JCCalenderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCCalenderView.m; sourceTree = "<group>"; };
+		A9868F4820995A7F00738346 /* RCClassifyCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCClassifyCell.h; sourceTree = "<group>"; };
+		A9868F4920995A7F00738346 /* RCClassifyCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCClassifyCell.m; sourceTree = "<group>"; };
+		A9868F4C20996EA100738346 /* QZSortCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QZSortCell.h; sourceTree = "<group>"; };
+		A9868F4D20996EA100738346 /* QZFilterDataTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QZFilterDataTableView.h; sourceTree = "<group>"; };
+		A9868F4F20996EA100738346 /* PR_project_ok@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PR_project_ok@2x.png"; sourceTree = "<group>"; };
+		A9868F5020996EA100738346 /* PR_project_ok@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PR_project_ok@3x.png"; sourceTree = "<group>"; };
+		A9868F5120996EA100738346 /* PR_filter_choice@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PR_filter_choice@2x.png"; sourceTree = "<group>"; };
+		A9868F5220996EA100738346 /* PR_filter_choice_top@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PR_filter_choice_top@2x.png"; sourceTree = "<group>"; };
+		A9868F5320996EA100738346 /* PR_filter_choice_top@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PR_filter_choice_top@3x.png"; sourceTree = "<group>"; };
+		A9868F5420996EA100738346 /* PR_filter_choice@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PR_filter_choice@3x.png"; sourceTree = "<group>"; };
+		A9868F5620996EA100738346 /* QZConditionFilterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QZConditionFilterView.m; sourceTree = "<group>"; };
+		A9868F5720996EA100738346 /* QZSortCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QZSortCell.m; sourceTree = "<group>"; };
+		A9868F5820996EA100738346 /* QZFilterDataTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QZFilterDataTableView.m; sourceTree = "<group>"; };
+		A9868F5A20996EA100738346 /* QZConditionFilterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QZConditionFilterView.h; sourceTree = "<group>"; };
+		A9868F6520996F6900738346 /* RCFlitterVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCFlitterVC.h; sourceTree = "<group>"; };
+		A9868F6620996F6900738346 /* RCFlitterVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCFlitterVC.m; sourceTree = "<group>"; };
 		A9C444EA2071C83D008198C7 /* RCCommentVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCCommentVC.h; sourceTree = "<group>"; };
 		A9C444EB2071C83D008198C7 /* RCCommentVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCCommentVC.m; sourceTree = "<group>"; };
 		A9C444ED2071CF47008198C7 /* RCConsumeNoteVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCConsumeNoteVC.h; sourceTree = "<group>"; };
@@ -481,6 +523,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A919CE4B2093200B006024E6 /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				A919CE4C20932030006024E6 /* UIView+Category.h */,
+				A919CE4D20932030006024E6 /* UIView+Category.m */,
+			);
+			path = UIView;
+			sourceTree = "<group>";
+		};
 		A92D1F6D208F327600CB60B8 /* ReaderTool */ = {
 			isa = PBXGroup;
 			children = (
@@ -544,6 +595,35 @@
 				A93969E9206A503C0019942A /* RCBannerView.m */,
 				A944C358206B371F00EFA2C6 /* RCBookBannerCell.h */,
 				A944C359206B371F00EFA2C6 /* RCBookBannerCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A93F95AF20947A9500D4753E /* Classify */ = {
+			isa = PBXGroup;
+			children = (
+				A93F95B120947AA800D4753E /* View */,
+				A93F95B020947AA000D4753E /* Controller */,
+			);
+			path = Classify;
+			sourceTree = "<group>";
+		};
+		A93F95B020947AA000D4753E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A93F95B220947AD700D4753E /* RCClassify.h */,
+				A93F95B320947AD700D4753E /* RCClassify.m */,
+				A9868F6520996F6900738346 /* RCFlitterVC.h */,
+				A9868F6620996F6900738346 /* RCFlitterVC.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A93F95B120947AA800D4753E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A9868F4820995A7F00738346 /* RCClassifyCell.h */,
+				A9868F4920995A7F00738346 /* RCClassifyCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -702,6 +782,33 @@
 				A9849BC62085F14E0075B804 /* RCAuthorAccountHeadView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		A9868F4B20996EA100738346 /* QZConditionFilterView */ = {
+			isa = PBXGroup;
+			children = (
+				A9868F4E20996EA100738346 /* images */,
+				A9868F5720996EA100738346 /* QZSortCell.m */,
+				A9868F4D20996EA100738346 /* QZFilterDataTableView.h */,
+				A9868F5820996EA100738346 /* QZFilterDataTableView.m */,
+				A9868F5A20996EA100738346 /* QZConditionFilterView.h */,
+				A9868F5620996EA100738346 /* QZConditionFilterView.m */,
+			);
+			path = QZConditionFilterView;
+			sourceTree = "<group>";
+		};
+		A9868F4E20996EA100738346 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				A9868F4C20996EA100738346 /* QZSortCell.h */,
+				A9868F4F20996EA100738346 /* PR_project_ok@2x.png */,
+				A9868F5020996EA100738346 /* PR_project_ok@3x.png */,
+				A9868F5120996EA100738346 /* PR_filter_choice@2x.png */,
+				A9868F5220996EA100738346 /* PR_filter_choice_top@2x.png */,
+				A9868F5320996EA100738346 /* PR_filter_choice_top@3x.png */,
+				A9868F5420996EA100738346 /* PR_filter_choice@3x.png */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 		A9C445052073134D008198C7 /* View */ = {
@@ -988,6 +1095,7 @@
 		A9EC9C4D2064DA1E009D2AB0 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				A93F95AF20947A9500D4753E /* Classify */,
 				A9849BBF2085D6460075B804 /* Author */,
 				A9EA24E3207DEA5B00D7583D /* BookStore */,
 				A944C383206B9C8F00EFA2C6 /* Reward */,
@@ -1079,10 +1187,13 @@
 		A9EC9C612064DB65009D2AB0 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				A9868F4B20996EA100738346 /* QZConditionFilterView */,
 				A9EC9C632064DB83009D2AB0 /* JCFileReadAndWriteManager.h */,
 				A9EC9C642064DB83009D2AB0 /* JCFileReadAndWriteManager.m */,
 				A9849BCA2086000D0075B804 /* JCCalenderView.h */,
 				A9849BCB2086000D0075B804 /* JCCalenderView.m */,
+				A93F95AB209425BB00D4753E /* RCShowLoginManager.h */,
+				A93F95AC209425BB00D4753E /* RCShowLoginManager.m */,
 				A9EA24E2207DDADD00D7583D /* RCSiftView */,
 			);
 			path = Tools;
@@ -1113,6 +1224,7 @@
 		A9EC9C6E2064DBBF009D2AB0 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				A919CE4B2093200B006024E6 /* UIView */,
 				A944C364206B651200EFA2C6 /* UIButton */,
 				A9EC9C6F2064DBC7009D2AB0 /* UIImage */,
 			);
@@ -1204,6 +1316,8 @@
 				A9C444EE2071CF47008198C7 /* RCConsumeNoteVC.m */,
 				A9C4451920737B4C008198C7 /* RCAuthorInfoVC.h */,
 				A9C4451A20737B4C008198C7 /* RCAuthorInfoVC.m */,
+				A93F95A82094224C00D4753E /* RCSettingVC.h */,
+				A93F95A92094224C00D4753E /* RCSettingVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1248,6 +1362,8 @@
 				A9C4451720737574008198C7 /* RCCommentManageVC.m */,
 				A9FF4569208DB0CB0029916F /* RCRookInfoVC.h */,
 				A9FF456A208DB0CB0029916F /* RCRookInfoVC.m */,
+				A93F95A52094122300D4753E /* RCBookRecentVC.h */,
+				A93F95A62094122300D4753E /* RCBookRecentVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1423,7 +1539,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A94AA4B92060E3C300C4F558 /* LaunchScreen.storyboard in Resources */,
+				A9868F5D20996EA200738346 /* PR_filter_choice@2x.png in Resources */,
+				A9868F5C20996EA200738346 /* PR_project_ok@3x.png in Resources */,
+				A9868F5E20996EA200738346 /* PR_filter_choice_top@2x.png in Resources */,
+				A9868F5B20996EA200738346 /* PR_project_ok@2x.png in Resources */,
 				A94AA4B62060E3C300C4F558 /* Assets.xcassets in Resources */,
+				A9868F6020996EA200738346 /* PR_filter_choice@3x.png in Resources */,
+				A9868F5F20996EA200738346 /* PR_filter_choice_top@3x.png in Resources */,
 				A9C9205920904E8800981482 /* 求魔.txt in Resources */,
 				A9849BC92085F37A0075B804 /* bg_Image.JPG in Resources */,
 			);
@@ -1521,6 +1643,7 @@
 				A9C920332090239B00981482 /* DZMCoverController.m in Sources */,
 				A9FF4577208DEAB70029916F /* RCBookIntroduceCell.m in Sources */,
 				A9C444F52072017F008198C7 /* RCChartTypeView.m in Sources */,
+				A9868F6720996F6900738346 /* RCFlitterVC.m in Sources */,
 				A944C38A206B9DA100EFA2C6 /* RCRewardAuthorVC.m in Sources */,
 				A9EC9C8F2064DDF5009D2AB0 /* HomeTBVC.m in Sources */,
 				A93969E7206A37D60019942A /* RCChartsCell.m in Sources */,
@@ -1540,6 +1663,7 @@
 				A9C4451B20737B4C008198C7 /* RCAuthorInfoVC.m in Sources */,
 				A96DAB4520650D79007AB2FE /* BaseCell.m in Sources */,
 				A96DAB4820650DB1007AB2FE /* RCMyshelfCell.m in Sources */,
+				A9868F6120996EA200738346 /* QZConditionFilterView.m in Sources */,
 				A9FF456B208DB0CB0029916F /* RCRookInfoVC.m in Sources */,
 				A978E82F206CDDFA0053F8CB /* RCRewardCountView.m in Sources */,
 				A944C377206B77DE00EFA2C6 /* RCInputView.m in Sources */,
@@ -1555,11 +1679,13 @@
 				A9849BBE2085D5BB0075B804 /* RCAuthorAccountVC.m in Sources */,
 				A9C9204A2090239B00981482 /* DZMRMBaseView.swift in Sources */,
 				A944C382206B955C00EFA2C6 /* RCForgetPasswordQCVC.m in Sources */,
+				A9868F6220996EA200738346 /* QZSortCell.m in Sources */,
 				A9EC9CAE2064F00C009D2AB0 /* RCPersonHeadView.m in Sources */,
 				A9FF456E208DB29F0029916F /* RCBookInfoTableHeader.m in Sources */,
 				A9EC9C5F2064DB25009D2AB0 /* BaseViewController.m in Sources */,
 				A9C9202F2090239B00981482 /* DZMHaloButton.swift in Sources */,
 				A944C35D206B43F000EFA2C6 /* RCPurchaseVC.m in Sources */,
+				A9868F4A20995A7F00738346 /* RCClassifyCell.m in Sources */,
 				A93969E3206A35CB0019942A /* RCChartsVC.m in Sources */,
 				A9EC9C972064DE23009D2AB0 /* SettingVC.m in Sources */,
 				A9849BC42085D6CF0075B804 /* RCAuthorAccountCell.m in Sources */,
@@ -1581,11 +1707,13 @@
 				A9FF457D208DEB080029916F /* RCBookInfoItemCell.m in Sources */,
 				A9EC9C812064DC60009D2AB0 /* UITableView+DYTableViewBinder.m in Sources */,
 				A9EC9CAB2064EFBA009D2AB0 /* BaseView.m in Sources */,
+				A93F95A72094122300D4753E /* RCBookRecentVC.m in Sources */,
 				A944C374206B775D00EFA2C6 /* RCResetPasswordVC.m in Sources */,
 				A9C445122073518D008198C7 /* RCCommentManageCell.m in Sources */,
 				A9C9204F2090239B00981482 /* DZMReadMarkModel.swift in Sources */,
 				A9C9203F2090239B00981482 /* DZMReadAuxiliary.swift in Sources */,
 				A9EC9C822064DC60009D2AB0 /* DYTableViewRowAction.m in Sources */,
+				A93F95AA2094224C00D4753E /* RCSettingVC.m in Sources */,
 				A92D1F66208EDB1F00CB60B8 /* RCBookCommentCell.m in Sources */,
 				A944C37F206B86F900EFA2C6 /* RCForgetPassword.m in Sources */,
 				A927A76B206E0EAE001A5E63 /* RCRewardHeadView.m in Sources */,
@@ -1593,6 +1721,7 @@
 				A9849BC72085F14E0075B804 /* RCAuthorAccountHeadView.m in Sources */,
 				A9EC9CBA2064FAD0009D2AB0 /* JCEmptyView.m in Sources */,
 				A9C4451820737574008198C7 /* RCCommentManageVC.m in Sources */,
+				A919CE4E20932030006024E6 /* UIView+Category.m in Sources */,
 				A9EC9C5D2064DB25009D2AB0 /* BaseTableViewController.m in Sources */,
 				A9C920382090239B00981482 /* DZMMagnifierView.m in Sources */,
 				A927A762206DE51D001A5E63 /* RCRewardMoneyView.m in Sources */,
@@ -1613,6 +1742,7 @@
 				A92D1F69208F001E00CB60B8 /* RCBookBottomMenu.m in Sources */,
 				A93969DD206A28450019942A /* RCChargeCell.m in Sources */,
 				A9EC9C962064DE23009D2AB0 /* PersonalVC.m in Sources */,
+				A9868F6320996EA200738346 /* QZFilterDataTableView.m in Sources */,
 				A9C920312090239B00981482 /* DZMGlobalMethod.swift in Sources */,
 				A944C35A206B371F00EFA2C6 /* RCBookBannerCell.m in Sources */,
 				A9EC9CA02064E821009D2AB0 /* RCBookshelfVC.m in Sources */,
@@ -1632,6 +1762,7 @@
 				A9C920282090239B00981482 /* NSObject+Extension.swift in Sources */,
 				A9C444EF2071CF47008198C7 /* RCConsumeNoteVC.m in Sources */,
 				A9C920462090239B00981482 /* DZMRMStatusView.swift in Sources */,
+				A93F95AD209425BB00D4753E /* RCShowLoginManager.m in Sources */,
 				A9C9204B2090239B00981482 /* DZMRMLightView.swift in Sources */,
 				A9EC9CC2206506B9009D2AB0 /* RCSegmentView.m in Sources */,
 				A9FF4571208DC4280029916F /* QMUIFillButton+category.m in Sources */,
@@ -1649,6 +1780,7 @@
 				A92D1F63208ED33400CB60B8 /* RCBookMenuCell.m in Sources */,
 				A9C4450820731367008198C7 /* LoginView.m in Sources */,
 				A9C920442090239B00981482 /* DZMRMFuncView.swift in Sources */,
+				A93F95B420947AD700D4753E /* RCClassify.m in Sources */,
 				A972A25920848CF400C4FCAF /* RCBookStoreSearchView.m in Sources */,
 				A9C9202E2090239B00981482 /* DZMSegmentedControl.swift in Sources */,
 				A9C9203C2090239B00981482 /* DZMReadParser.swift in Sources */,

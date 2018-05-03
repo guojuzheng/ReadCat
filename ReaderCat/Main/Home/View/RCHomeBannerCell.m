@@ -8,16 +8,24 @@
 
 #import "RCHomeBannerCell.h"
 #import "SDCycleScrollView.h"
+#import "BaseViewController.h"
+#import "RCRookInfoVC.h"
 @interface RCHomeBannerCell()<SDCycleScrollViewDelegate>
+{
+    NSTimer *_timer;
+}
 @property (nonatomic, strong)SDCycleScrollView        *cycleBannerView;
 @property (nonatomic, strong)UIImageView              *leftImage;
 @property (nonatomic, strong)UILabel                  *tipLabel;
+
 @end
 @implementation RCHomeBannerCell
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
+        _timer = [NSTimer scheduledTimerWithTimeInterval:4.0 target:self selector:@selector(timerAction) userInfo:nil repeats:YES];
+        [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
         [self configSubviews];
     }
     return self;
@@ -54,14 +62,17 @@
     .rightSpaceToView(self, 21)
     .topEqualToView(self.leftImage)
     .heightIs(32);
-    for (int i = 0; i < 5; i++) {
-        QMUIButton *button = [self creatQMUIBtnWithImage:@"charge" title:@"打榜" titleImageSpace:5 imagePosition:QMUIButtonImagePositionTop font:11 backgroundColor:WhiteColor titleColor:Color(@"#333333")];
+    NSArray *titleArray = @[@"榜单",@"免费",@"充值",@"足迹"];
+    for (int i = 0; i < titleArray.count; i++) {
+        QMUIButton *button = [self creatQMUIBtnWithImage:@"charge" title:titleArray[i] titleImageSpace:5 imagePosition:QMUIButtonImagePositionTop font:11 backgroundColor:WhiteColor titleColor:Color(@"#333333")];
         [self sd_addSubviews:@[button]];
+        [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+        button.tag = 100 +i;
         button.sd_layout
-        .leftSpaceToView(self, i *SCREEN_WIDTH/5)
+        .leftSpaceToView(self, i *SCREEN_WIDTH/titleArray.count)
         .topSpaceToView(self.tipLabel, 1)
         .bottomSpaceToView(self, 0)
-        .widthIs(SCREEN_WIDTH/5);
+        .widthIs(SCREEN_WIDTH/titleArray.count);
     }
     
 }
@@ -71,7 +82,7 @@
 }
 /** 点击图片回调 */
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index{
-    
+    [[self getViewController].navigationController pushViewController:[RCRookInfoVC new] animated:YES];
 }
 
 /** 图片滚动回调 */
@@ -87,7 +98,58 @@
     [button setImage:UIImageMake(imageName) forState:UIControlStateNormal];
     [button setTitle:title forState:UIControlStateNormal];
     button.titleLabel.font = UIFontMake(fontSize);
-    button.qmui_borderPosition = QMUIBorderViewPositionTop | QMUIBorderViewPositionBottom;
+//    button.qmui_borderPosition = QMUIBorderViewPositionTop | QMUIBorderViewPositionBottom;
     return button;
 }
+
+- (void)timerAction {
+    CATransition *animation = [CATransition animation];
+    animation.duration = 0.5f;
+    animation.timingFunction=UIViewAnimationCurveEaseInOut;
+    animation.type = @"cube";
+    animation.subtype = kCATransitionFromTop;
+    [self.tipLabel.layer addAnimation:animation forKey:nil];
+}
+
+- (void)buttonClick:(UIButton *)button {
+    NSInteger tag = button.tag-100;
+    NSString *schema;
+    if (tag == 0) {
+        schema = URL_SCHEMA_CHARTS;
+    } else if (tag == 1) {
+        schema = URL_SCHEMA_CHARGE;
+    } else if (tag == 2) {
+        schema = URL_SCHEMA_TOPPPED;
+    } else if (tag == 3) {
+        schema = URL_SCHEMA_HISTORY;
+    }
+    GMRouterBlock block = [[GMRouter shared] matchBlock:schema];
+    BaseViewController *vc = block(nil);
+    UIViewController *currentVc = [self currentViewController];
+    [currentVc.navigationController pushViewController:vc animated:YES];
+}
+
+//确定是哪个viewcontroller
+-(UIViewController *)currentViewController{
+    
+    UIViewController * currVC = nil;
+    UIViewController * Rootvc = self.window.rootViewController ;
+    do {
+        if ([Rootvc isKindOfClass:[UINavigationController class]]) {
+            UINavigationController * nav = (UINavigationController *)Rootvc;
+            UIViewController * v = [nav.viewControllers lastObject];
+            currVC = v;
+            Rootvc = v.presentedViewController;
+            continue;
+        }else if([Rootvc isKindOfClass:[UITabBarController class]]){
+            UITabBarController * tabVC = (UITabBarController *)Rootvc;
+            currVC = tabVC;
+            Rootvc = [tabVC.viewControllers objectAtIndex:tabVC.selectedIndex];
+            continue;
+        }
+    } while (Rootvc!=nil);
+    
+    return currVC;
+}
+
 @end

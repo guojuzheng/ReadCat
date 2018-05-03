@@ -32,7 +32,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"忘记密码";
-    [self ShowNVBar];
+    [self showNavigationBar];
     [self hideNVBarShadow];
     [self configSubviews];
 }

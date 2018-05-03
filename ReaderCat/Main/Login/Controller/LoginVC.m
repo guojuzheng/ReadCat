@@ -9,7 +9,7 @@
 #import "LoginVC.h"
 #import "LoginView.h"
 #import "LoginWayView.h"
-
+#import "RCForgetPassword.h"
 @interface LoginVC ()
 @property (nonatomic, strong)MyLinearLayout     *contentLayout;
 @property (nonatomic, strong)LoginView          *loginView;
@@ -35,6 +35,7 @@
     [self ShowNVBar];
     [self hideNVBarShadow];
     [self configSubviews];
+    [self dealAction];
 }
 
 - (void)configSubviews {
@@ -48,6 +49,20 @@
     self.loginWayView.myTop = 0;
     self.loginWayView.myHeight = 200;
     [self.lineLayout addSubview:self.loginWayView];
+}
+
+- (void)dealAction {
+    self.loginView.forwordPw.onClick(^{
+        [self pushVC:[RCForgetPassword new]];
+    });
+    
+    self.loginView.loginBtn.onClick(^{
+        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    });
+}
+
+- (void)backClick {
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

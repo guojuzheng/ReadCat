@@ -11,6 +11,7 @@
 #import "RCRewardCountView.h"
 #import "RCRewardMoneyView.h"
 #import "RCLeftAndRightButtonView.h"
+#import "RCPurchaseVC.h"
 
 @interface RCRewardVC ()
 @property (nonatomic, strong) MyLinearLayout     *contentLayout;
@@ -39,6 +40,7 @@
     [self ShowNVBar];
     [self hideNVBarShadow];
     [self configSubviews];
+    [self dealAction];
 }
 
 - (void)configSubviews {
@@ -67,6 +69,12 @@
     self.bottomBtnView.myHeight = 45;
     [self.contentLayout addSubview:self.bottomBtnView];
     
+}
+
+- (void)dealAction {
+    self.accountView.rightButton.onClick(^{
+        [self pushVC:[RCPurchaseVC new]];
+    });
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -17,6 +17,7 @@
 #import "UIImage+Extension.h"
 #import "UIButton+ImageTitleLayout.h"
 #import "QMUIFillButton+category.h"
+#import "UIView+Category.h"
 #pragma mark ================= The three parties =================
 #import <YYModel/YYModel.h>
 #import <ReactiveObjC/ReactiveObjC.h>
@@ -36,6 +37,10 @@
 #import <LEEAlert/LEEAlert.h>
 #import <WZLBadge/WZLBadgeImport.h>
 #import <Reachability/Reachability.h>
+
+
+#pragma mark ================= tools =================
+#import "RCShowLoginManager.h"
 
 #endif /* PrefixHeader_pch */
 

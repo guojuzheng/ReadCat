@@ -98,6 +98,15 @@
     self.searchView.sd_layout.heightIs(SCREEN_HEIGHT);
     self.searchView.colView.hidden = NO;
 }
+
+#pragma mark ================= 路由跳转 =================
++ (void)load{
+    [super load];
+    [[GMRouter shared]map:URL_SCHEMA_BOOKSTORE toBlock:^id(NSDictionary *params) {
+        RCBookStoreVC *vc = [RCBookStoreVC new];
+        return vc;
+    }];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

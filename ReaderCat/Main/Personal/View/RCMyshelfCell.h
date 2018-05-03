@@ -14,5 +14,6 @@
 @property (nonatomic, strong) UILabel            *readTo;
 @property (nonatomic, strong) UILabel            *writeTo;
 @property (nonatomic, strong) UIButton           *deleteBtn;
+@property (nonatomic, strong) UIView             *lineView;
 
 @end

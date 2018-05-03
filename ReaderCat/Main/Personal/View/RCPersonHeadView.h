@@ -7,13 +7,15 @@
 //
 
 #import "BaseView.h"
+#import "RCRewardCountView.h"
 
 @interface RCPersonHeadView : BaseView
-@property (nonatomic, strong) UIImageView *bgImageView;
-@property (nonatomic, strong) UIImageView *headView;
-@property (nonatomic, strong) UILabel     *nameLabel;
-@property (nonatomic, strong) UIImageView *vipImageView;
-@property (nonatomic, strong) UIButton    *editMessageBtn;
-@property (nonatomic, strong) UILabel     *readTime;
-@property (nonatomic, strong) UILabel     *goodNumber;
+@property (nonatomic, strong) UIImageView          *bgImageView;
+@property (nonatomic, strong) UIImageView          *headView;
+@property (nonatomic, strong) UILabel              *nameLabel;
+@property (nonatomic, strong) UIImageView          *vipImageView;
+@property (nonatomic, strong) UIButton             *editMessageBtn;
+@property (nonatomic, strong) UILabel              *readTime;
+@property (nonatomic, strong) UILabel              *goodNumber;
+@property (nonatomic, strong) RCRewardCountView    *countView;
 @end

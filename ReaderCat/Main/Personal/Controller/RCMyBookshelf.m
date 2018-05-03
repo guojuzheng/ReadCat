@@ -48,7 +48,8 @@
 - (void)viewDidLoad {
     self.navigationItem.title = @"我的书架";
     [super viewDidLoad];
-    [self ShowNVBar];
+    [self showNavigationBar];
+    [self hideNVBarShadow];
     [self setNavBar];
     [self configSubviews];
     self.navigationItem.leftBarButtonItem = nil;

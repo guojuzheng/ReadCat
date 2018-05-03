@@ -9,6 +9,8 @@
 #import "RCConsumeNoteVC.h"
 #import "RCSegmentView.h"
 #import "RCChargeCell.h"
+#import "RCRewardDetailVC.h"
+#import "RCSubscribeVC.h"
 
 @interface RCConsumeNoteVC ()
 @property (nonatomic, strong) NSMutableArray *dataArray;
@@ -52,24 +54,27 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"消费记录";
-    [self ShowNVBar];
+    [self showNavigationBar];
     [self hideNVBarShadow];
     [self configSubviews];
     [self configRefresh];
 }
 
 - (void)configSubviews {
+    self.flag = 0;
+    self.dataArray = [NSMutableArray arrayWithArray:@[@"1",@"2"]];
     self.segmentView  = [RCSegmentView new];
     [self.segmentView setSegmentTitle:@[@"打赏记录",@"订阅记录"]];
     WeakifySelf();
     self.segmentView.segmentBlock = ^(NSInteger selectedIndex) {
         weakSelf.flag = selectedIndex;
         if (selectedIndex == 0) {
-            
+            weakSelf.dataArray = [NSMutableArray arrayWithArray:@[@"1",@"2"]];
         } else if (selectedIndex == 1) {
-            
+            weakSelf.dataArray = [NSMutableArray arrayWithArray:@[@"1",@"2",@"3"]];
         }
-        [weakSelf loadMoreData];
+        weakSelf.noteList.data = weakSelf.dataArray;
+        [weakSelf.noteList reloadData];
     };
     [self.view sd_addSubviews:@[self.segmentView]];
     self.segmentView.sd_layout
@@ -96,12 +101,14 @@
         return YES;
     }] subscribeNext:^(id x) {
         if (x != nil) {
-            //            JCInsuranceBillDetailVC *billDetailVC = [JCInsuranceBillDetailVC new];
-            //            billDetailVC.orderId = x.orderId;
-            //            [self pushVC:billDetailVC];
+            if (self.flag == 0) {
+                [self pushVC:[RCRewardDetailVC new]];
+            } else if (self.flag == 1) {
+                [self pushVC:[RCSubscribeVC new]];
+            }
         }
     }];
-    self.noteList.data = [NSArray arrayWithObjects:@"1", nil];
+    self.noteList.data = [NSArray arrayWithObjects:@"1",@"2", nil];
     [self.noteList reloadData];
 }
 
@@ -122,11 +129,11 @@
     [self.noteList.mj_header beginRefreshing];
 }
 - (void)loadNewData {
-    self.noteList.data = [NSArray arrayWithObjects:@"1", nil];
+    self.noteList.data = [NSArray arrayWithObjects:@"1",@"2", nil];
     [self.noteList reloadData];
 }
 - (void)loadMoreData {
-    self.noteList.data = [NSArray arrayWithObjects:@"1",@"2", nil];
+    self.noteList.data = [NSArray arrayWithObjects:@"1",@"2",@"3", nil];
     [self.noteList reloadData];
 }
 - (void)didReceiveMemoryWarning {

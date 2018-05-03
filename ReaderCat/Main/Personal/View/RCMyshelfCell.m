@@ -23,7 +23,9 @@
     self.deleteBtn.hidden = YES;
     [self.deleteBtn setTitle:@"删除" forState:UIControlStateNormal];
     [self.deleteBtn setTitleColor:BlackColor forState:UIControlStateNormal];
-    [self sd_addSubviews:@[self.bookImage,self.bookName,self.deleteBtn,self.readTo,self.writeTo]];
+    self.lineView = [UIView new];
+    self.lineView.backgroundColor = DEFAULT_BG_COLOR;
+    [self sd_addSubviews:@[self.bookImage,self.bookName,self.deleteBtn,self.readTo,self.writeTo,self.lineView]];
     self.bookImage.sd_layout
     .leftSpaceToView(self, 17)
     .topSpaceToView(self, 17)
@@ -53,5 +55,11 @@
     .topSpaceToView(self.readTo, 8)
     .rightEqualToView(self)
     .heightIs(11);
+    
+    self.lineView.sd_layout
+    .leftEqualToView(self)
+    .rightEqualToView(self)
+    .bottomEqualToView(self)
+    .heightIs(1);
 }
 @end

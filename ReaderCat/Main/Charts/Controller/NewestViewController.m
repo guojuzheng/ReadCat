@@ -120,6 +120,15 @@
 - (void)loadMoreData {
     
 }
+
+#pragma mark ================= 路由跳转 =================
++ (void)load{
+    [super load];
+    [[GMRouter shared]map:URL_SCHEMA_NEWEST toBlock:^id(NSDictionary *params) {
+        NewestViewController *vc = [NewestViewController new];
+        return vc;
+    }];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     

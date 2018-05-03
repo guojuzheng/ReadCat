@@ -11,6 +11,7 @@
 #import "RCRewardInfoCell.h"
 #import "RCRewardHeadView.h"
 #import "RCRewardBallotHead.h"
+#import "RCRewardVC.h"
 
 @interface RCRewardAuthorVC ()
 @property (nonatomic, strong) RCSegmentView         *segmentView;
@@ -41,6 +42,9 @@
         self.tableHeadView = [RCRewardHeadView new];
         self.tableHeadView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 161);
         _rewardTableView.tableHeaderView = self.tableHeadView;
+        self.tableHeadView.rewardCountView.rightButton.onClick(^{
+            [self pushVC:[RCRewardVC new]];
+        });
         [self.view addSubview:_rewardTableView];
     }
     return _rewardTableView;

@@ -14,6 +14,10 @@
 #import "RCHomeGoodRecommendCell.h"
 #import "RCHomeSeeMoreCell.h"
 #import "RCHomeClassifyCell.h"
+#import "RCRookInfoVC.h"
+#import "RCSearchBookVC.h"
+#import "RCBookStoreVC.h"
+#import "RCClassify.h"
 
 @interface HomeIndexVC ()<UICollectionViewDelegate, UICollectionViewDataSource, CustomCollectionViewDelegateFlowLayout>
 @property (nonatomic, strong) RCTopView *customNavBar;
@@ -32,6 +36,10 @@
     }
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    self.navigationController.navigationBar.hidden = NO;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configureSubviews];
@@ -51,7 +59,6 @@
     self.collectionView = collectionView;
 
     AdjustsScrollViewInsetNever(self, collectionView)
-    
     
     self.customNavBar = [RCTopView new];
     self.customNavBar.frame= CGRectMake(0, 0, SCREEN_WIDTH, StatusBarHeight + NavigationBarHeight);
@@ -81,7 +88,7 @@
     } else if (section ==  1) {
         return 1;
     } else if (section == 2) {
-        return 4;
+        return 3;
     } else if (section == 3) {
         return 4;
     }
@@ -114,11 +121,19 @@
     }
  
 }
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 1 || indexPath.section == 2) {
+        [self.navigationController pushViewController:[RCRookInfoVC new] animated:YES];
+    } else if (indexPath.section == 3) {
+        [self.navigationController pushViewController:[RCClassify new] animated:YES];
+    }
+}
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         return CGSizeMake(SCREEN_WIDTH, 307);
     } else if (indexPath.section == 1) {
-        return CGSizeMake(SCREEN_WIDTH, 324);
+        return CGSizeMake(SCREEN_WIDTH, 277);
     } else if (indexPath.section == 2) {
         if (indexPath.item == 3) {
             return CGSizeMake(SCREEN_WIDTH, 41);

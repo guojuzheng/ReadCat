@@ -29,6 +29,9 @@
 #import "RCSearchBookVC.h"
 #import "RCAuthorAccountVC.h"
 #import "RCRookInfoVC.h"
+#import "RCBookRecentVC.h"
+#import "RCSettingVC.h"
+#import "RCPurchaseVC.h"
 
 @interface PersonalVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
@@ -40,7 +43,7 @@ static NSString *CellIdentifier = @"Cell";
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self hideNVBar];
+    self.navigationController.navigationBar.hidden = YES;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -48,15 +51,15 @@ static NSString *CellIdentifier = @"Cell";
 }
 
 - (void)configSubviews {
-    self.dataArray = @[@"我的购买",@"消费记录",@"设置",@"成为作家",@"榜单",@"充值",@"个人资料",@"忘记密码",@"",@"打赏",@"打赏作者",@"填写评论",@"最新",@"打赏明细",@"订阅明细",@"账号登录",@"评论管理",@"作家资料",@"书库",@"搜索",@"作家账户",@"信息"];
-    self.tableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStyleGrouped];
+    self.dataArray = @[@"最近阅读",@"充值记录",@"消费记录",@"设置",@"",@"账号登录"];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStyleGrouped];
     self.tableView.delegate = self;
     self.tableView.backgroundColor = DEFAULT_BG_COLOR;
     self.tableView.dataSource = self;
     self.tableView.tableFooterView = [UIView new];
+    self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 0.001)];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CellIdentifier];
     [self.view addSubview:self.tableView];
-   
     
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -66,7 +69,7 @@ static NSString *CellIdentifier = @"Cell";
     return self.dataArray.count;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 8) {
+    if (indexPath.row == 4) {
         return 10;
     }
     return 45;
@@ -76,7 +79,7 @@ static NSString *CellIdentifier = @"Cell";
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.textLabel.text = self.dataArray[indexPath.row];
     cell.textLabel.fnt(14);
-    if (indexPath.row == 8) {
+    if (indexPath.row == 4) {
         cell.backgroundColor = DEFAULT_BG_COLOR;
     } else {
         cell.backgroundColor = WhiteColor;
@@ -84,10 +87,23 @@ static NSString *CellIdentifier = @"Cell";
     return cell;
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    return [RCPersonHeadView new];
+    RCPersonHeadView *headView = [RCPersonHeadView new];
+    headView.editMessageBtn.onClick(^{
+        [self pushVC:[RCPersonalInfoVC new]];
+    });
+    headView.countView.rightButton.onClick(^{
+        QMUITips *tips = [QMUITips showLoading:@"加载中..." inView:self.view];
+        QMUIToastBackgroundView *backgroundView = (QMUIToastBackgroundView *)tips.backgroundView;
+        backgroundView.shouldBlurBackgroundView = YES;
+        backgroundView.styleColor = UIColorMakeWithRGBA(232, 232, 232, 0.8);
+        tips.tintColor = UIColorBlack;
+        [self pushVC:[RCPurchaseVC new]];
+        [tips hideAnimated:YES];
+    });
+    return headView;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 267;
+    return 270;
 }
 - (UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     _loginOutBtn = [JCQMUIFillButton QMUIFillButtonBlueWithTitle:@"退出登录"];
@@ -98,44 +114,15 @@ static NSString *CellIdentifier = @"Cell";
     return 45;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 1) {
+    if (indexPath.row == 0) {
+        [self pushVC:[RCBookRecentVC new]];
+    } else if (indexPath.row == 2) {
         [self pushVC:[RCConsumeNoteVC new]];
-    } else if (indexPath.row == 3){
-        [self pushVC:[RCAuthorInfoVC new]];
-    } else if (indexPath.row == 4) {
-        [self pushVC:[RCChartsVC new]];
+    } else if (indexPath.row == 3) {
+        [self pushVC:[RCSettingVC new]];
     } else if (indexPath.row == 5) {
-        [self pushVC:[RCPurchaseVC new]];
-    } else if (indexPath.row == 6) {
-        [self pushVC:[RCPersonalInfoVC new]];
-    } else if (indexPath.row == 7) {
-        [self pushVC:[RCForgetPassword new]];
-    } else if (indexPath.row == 9) {
-        [self pushVC:[RCRewardVC new]];
-    } else if (indexPath.row == 10) {
-        [self pushVC:[RCRewardAuthorVC new]];
-    } else if (indexPath.row == 11) {
-        [self pushVC:[RCCommentVC new]];
-    } else if (indexPath.row == 12) {
-        [self pushVC:[NewestViewController new]];
-    } else if (indexPath.row == 13) {
-        [self pushVC:[RCRewardDetailVC new]];
-    } else if (indexPath.row == 14) {
-        [self pushVC:[RCSubscribeVC new]];
-    } else if (indexPath.row == 15) {
-        [self pushVC:[LoginVC new]];
-    } else if (indexPath.row == 16) {
-        [self pushVC:[RCCommentManageVC new]];
-    } else if (indexPath.row == 17) {
-        [self pushVC:[RCAuthorInfoVC new]];
-    } else if (indexPath.row == 18) {
-        [self pushVC:[RCBookStoreVC new]];
-    } else if (indexPath.row == 19) {
-        [self pushVC:[RCSearchBookVC new]];
-    } else if (indexPath.row == 20) {
-        [self pushVC:[RCAuthorAccountVC new]];
-    } else if (indexPath.row == 21) {
-        [self pushVC:[RCRookInfoVC new]];
+//        [self pushVC:[LoginVC new]];
+        [RCShowLoginManager showLoginVcFrom:self];
     }
 }
 - (void)didReceiveMemoryWarning {

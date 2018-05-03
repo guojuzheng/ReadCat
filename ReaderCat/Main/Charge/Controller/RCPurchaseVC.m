@@ -34,7 +34,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"充值";
-    [self ShowNVBar];
+    [self showNavigationBar];
     [self hideNVBarShadow];
     [self configSubviews];
 }
@@ -59,6 +59,15 @@
     [self.contentLayout addSubview:self.purchaseWayView];
     
     
+}
+
+#pragma mark ================= 路由跳转 =================
++ (void)load{
+    [super load];
+    [[GMRouter shared]map:URL_SCHEMA_TOPPPED toBlock:^id(NSDictionary *params) {
+        RCPurchaseVC *vc = [RCPurchaseVC new];
+        return vc;
+    }];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

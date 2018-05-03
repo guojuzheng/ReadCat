@@ -37,6 +37,8 @@
 -(void)ShowNVBar;
 -(void)hideNVBar;
 -(void)hideNVBarShadow;
+- (void)hideNavigationBar;
+- (void)showNavigationBar;
 
 #pragma mark ================= 更改状态栏颜色 =================
 - (void)statusBarBGC:(UIColor *)color andStatusTintStyle:(UIStatusBarStyle)style;

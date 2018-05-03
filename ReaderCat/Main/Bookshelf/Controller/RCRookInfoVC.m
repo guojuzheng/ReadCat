@@ -16,6 +16,8 @@
 #import "RCBookCommentCell.h"
 #import "RCBookBottomMenu.h"
 #import "ReaderCat-Swift.h"
+#import "RCRewardAuthorVC.h"
+#import "RCCommentVC.h"
 
 @interface RCRookInfoVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView                  *bookInfoTable;
@@ -61,7 +63,7 @@
     // Do any additional setup after loading the view.
     self.title = @"信息";
     self.flag = 0;
-    [self ShowNVBar];
+    [self showNavigationBar];
     [self hideNVBarShadow];
     [self configSubviews];
 }
@@ -82,7 +84,7 @@
     [self.bookInfoTable registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     [self.bookInfoTable registerClass:[RCBookInfoCell class] forCellReuseIdentifier:@"RCBookInfoCell"];
     [self.bookInfoTable registerClass:[RCBookIntroduceCell class] forCellReuseIdentifier:@"RCBookIntroduceCell"];
-     [self.bookInfoTable registerClass:[RCBookInfoItemCell class] forCellReuseIdentifier:@"RCBookInfoItemCell"];
+    [self.bookInfoTable registerClass:[RCBookInfoItemCell class] forCellReuseIdentifier:@"RCBookInfoItemCell"];
     [self.bookInfoTable registerClass:[RCBookRewordCell class] forCellReuseIdentifier:@"RCBookRewordCell"];
     [self.bookInfoTable registerClass:[RCBookMenuCell class] forCellReuseIdentifier:@"RCBookMenuCell"];
     [self.bookInfoTable registerClass:[RCBookCommentCell class] forCellReuseIdentifier:@"RCBookCommentCell"];
@@ -149,6 +151,9 @@
             RCBookCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RCBookCommentCell"];
             cell.nameLabel.text = @"耳朵陈";
             cell.textView.text = @"谁终将声震人间 必长久深自缄默 谁终将点燃闪电 必长久如云漂泊 爱若执炬迎风，炽烈而哀痛就如同现在的我，当我感受着生活赐予我的微甜，我更知道，原来，这就是努力之于我们生命的意义.愿你和你的梦想相安无事，在无法预测的未来里";
+            cell.commontBtn.onClick(^{
+                [self pushVC:[RCCommentVC new]];
+            });
             return cell;
         } else {
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
@@ -195,7 +200,9 @@
 }
 
 - (void)dealAction {
-    self.bottomMenu.rewardBtn.onClick(^{});
+    self.bottomMenu.rewardBtn.onClick(^{
+        [self pushVC:[RCRewardAuthorVC new]];
+    });
     NSURL *fileURL = [[NSBundle mainBundle] URLForResource:@"求魔" withExtension:@"txt"];
     self.bottomMenu.readNowBtn.onClick(^{
         [DZMReadParser ParserLocalURLWithUrl:fileURL complete:^(DZMReadModel * _Nonnull readModel) {
@@ -205,6 +212,15 @@
         }];
     });
     self.bottomMenu.joinBookshelf.onClick(^{});
+}
+
+#pragma mark ================= 路由跳转 =================
++ (void)load{
+    [super load];
+    [[GMRouter shared]map:URL_SCHEMA_BOOKINFO toBlock:^id(NSDictionary *params) {
+        RCRookInfoVC *vc = [RCRookInfoVC new];
+        return vc;
+    }];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

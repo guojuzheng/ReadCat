@@ -51,11 +51,15 @@
     return _myBookshelfList;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self showNavigationBar];
+    [self hideNVBarShadow];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"搜索";
-    [self ShowNVBar];
-    [self hideNVBarShadow];
+  
     [self configSubViews];
 }
 

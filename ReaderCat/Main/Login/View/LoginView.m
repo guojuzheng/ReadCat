@@ -79,7 +79,7 @@
     [button setImage:UIImageMake(imageName) forState:UIControlStateNormal];
     [button setTitle:title forState:UIControlStateNormal];
     button.titleLabel.font = UIFontMake(fontSize);
-    button.qmui_borderPosition = QMUIBorderViewPositionTop | QMUIBorderViewPositionBottom;
+//    button.qmui_borderPosition = QMUIBorderViewPositionTop | QMUIBorderViewPositionBottom;
     return button;
 }
 

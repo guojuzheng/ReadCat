@@ -25,13 +25,13 @@
     self.authorName =Label.fnt(11).color(@"#999999").str(@"流川枫");
     self.leftItem = [RCChargeSigleBookMessageView new];
     self.rightItem = [RCChargeSigleBookMessageView new];
-    self.seeMoreBtn = [JCQMUIFillButton QMUIFillButtonBlueWithTitle:@"查看更多"];
-    [self.seeMoreBtn setBackgroundColor:WhiteColor];
-    [self.seeMoreBtn setTitleColor:ThemeColor forState:UIControlStateNormal];
-    self.seeMoreBtn.cornerRadius = 0;
+//    self.seeMoreBtn = [JCQMUIFillButton QMUIFillButtonBlueWithTitle:@"查看更多"];
+//    [self.seeMoreBtn setBackgroundColor:WhiteColor];
+//    [self.seeMoreBtn setTitleColor:ThemeColor forState:UIControlStateNormal];
+//    self.seeMoreBtn.cornerRadius = 0;
     UIView *paddingView = [UIView new];
     paddingView.backgroundColor = DEFAULT_BG_COLOR;
-    [self sd_addSubviews:@[self.headTitle,self.bookImageView,self.bookName,self.bookBrief,self.headImage,self.authorName,self.leftItem,self.rightItem,self.seeMoreBtn,paddingView]];
+    [self sd_addSubviews:@[self.headTitle,self.bookImageView,self.bookName,self.bookBrief,self.headImage,self.authorName,self.leftItem,self.rightItem,paddingView]];
     self.headTitle.sd_layout
     .leftSpaceToView(self, 15)
     .rightSpaceToView(self, 15)
@@ -80,16 +80,16 @@
     .widthRatioToView(self, 0.5)
     .heightIs(115);
     
-    self.seeMoreBtn.sd_layout
-    .leftEqualToView(self)
-    .rightEqualToView(self)
-    .topSpaceToView(self.leftItem, 1)
-    .heightIs(41);
+//    self.seeMoreBtn.sd_layout
+//    .leftEqualToView(self)
+//    .rightEqualToView(self)
+//    .topSpaceToView(self.leftItem, 1)
+//    .heightIs(41);
     
     paddingView.sd_layout
     .leftEqualToView(self)
     .rightEqualToView(self)
-    .topSpaceToView(self.seeMoreBtn, 0)
+    .topSpaceToView(self.rightItem, 0)
     .heightIs(5);
 }
 

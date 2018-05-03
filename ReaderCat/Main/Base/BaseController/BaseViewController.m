@@ -101,7 +101,8 @@
     }else if(_normalBackVC){
         [self.navigationController popToViewController:_normalBackVC animated:YES];
     }else{
-        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+//        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+        [self.navigationController popViewControllerAnimated:YES];
     }
 }
 -(void)backToRoot{
@@ -182,4 +183,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)hideNavigationBar {
+    self.navigationController.navigationBar.hidden = YES;
+}
+
+- (void)showNavigationBar {
+    self.navigationController.navigationBar.hidden = NO;
+}
 @end

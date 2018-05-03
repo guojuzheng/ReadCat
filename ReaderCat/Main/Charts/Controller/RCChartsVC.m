@@ -99,6 +99,15 @@
 - (void)loadNewData {
     
 }
+
+#pragma mark ================= 路由跳转 =================
++ (void)load{
+    [super load];
+    [[GMRouter shared]map:URL_SCHEMA_CHARTS toBlock:^id(NSDictionary *params) {
+        RCChartsVC *vc = [RCChartsVC new];
+        return vc;
+    }];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

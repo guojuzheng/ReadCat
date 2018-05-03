@@ -7,6 +7,7 @@
 //
 
 #import "RCTopView.h"
+#import "RCSearchBookVC.h"
 
 @implementation RCTopView
 - (void)loadSubViews {
@@ -18,6 +19,7 @@
     [searchBtn setTitleColor:Color(@"#999999") forState:UIControlStateNormal];
     [searchBtn setImage:[UIImage imageNamed:@"common_search_icon"] forState:UIControlStateNormal];
     searchBtn.titleLabel.font = [UIFont systemFontOfSize:13];
+    [searchBtn addTarget:self action:@selector(searchButtonClick) forControlEvents:UIControlEventTouchUpInside];
 //    searchBtn.frame = CGRectMake(btnWidth, kStatusBarHeight + 7, kUIScreenWidth - 2 * btnWidth, btnHight - 14);
     searchBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     searchBtn.contentEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
@@ -29,10 +31,15 @@
     .topSpaceToView(self, StatusBarHeight +7)
     .heightIs(NavigationBarHeight-14);
     
+    
 }
 - (void)setBarAlpha:(CGFloat)barAlpha
 {
     _barAlpha = barAlpha;
     self.backgroundColor = RGB_A_COLOR(249, 201, 9, barAlpha);
+}
+
+- (void)searchButtonClick {
+    [[self getViewController].navigationController pushViewController:[RCSearchBookVC new] animated:YES];
 }
 @end

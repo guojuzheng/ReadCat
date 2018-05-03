@@ -7,6 +7,7 @@
 //
 
 #import "RCPersonHeadView.h"
+#import "RCRewardCountView.h"
 
 @implementation RCPersonHeadView
 - (void)loadSubViews {
@@ -44,7 +45,11 @@
     _goodNumber.fnt(12).str(@"收到的赞").color(@"#ffffff");
     _goodNumber.backgroundColor = [UIColor clearColor];
     
-    [self sd_addSubviews:@[title,_bgImageView, _headView,_nameLabel,_vipImageView,_editMessageBtn,_readTime,_goodNumber]];
+    _countView = [RCRewardCountView new];
+    _countView.leftLabel.text = @"账户:9阅读币";
+    [_countView.rightButton setTitle:@"充值" forState:UIControlStateNormal];
+    
+    [self sd_addSubviews:@[title,_bgImageView, _headView,_nameLabel,_vipImageView,_editMessageBtn,_readTime,_goodNumber,_countView]];
     title.sd_layout
     .leftEqualToView(self)
     .rightEqualToView(self)
@@ -91,6 +96,11 @@
     .leftSpaceToView(_readTime, 0)
     .heightIs(50);
     
+    _countView.sd_layout
+    .leftSpaceToView(self, -5)
+    .rightEqualToView(self)
+    .bottomEqualToView(self)
+    .heightIs(45);
 }
 
 @end
