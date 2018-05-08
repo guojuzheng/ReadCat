@@ -53,7 +53,11 @@
     .topSpaceToView(self.cycleBannerView, 8)
     .widthIs(19)
     .heightIs(15);
-    self.tipLabel = Label.fnt(12).color(@"#999999").str(@"今日主推：【医务圣王】意外得到秘密传承，学渣变神医，行医济世");
+    self.tipLabel = Label.fnt(12).color(@"#999999");
+    NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:@"今日主推: 医务圣王】意外得到秘密传承，学渣变神医，行医济世"];
+    [attrStr addAttribute:NSForegroundColorAttributeName value:Color(@"#000000") range:NSMakeRange(0, 5)];
+    [attrStr addAttribute:NSForegroundColorAttributeName value:Color(@"#999999") range:NSMakeRange(5, attrStr.length-5)];
+    self.tipLabel.attributedText = attrStr;
     self.tipLabel.numberOfLines = 0;
     self.tipLabel.lineBreakMode = NSLineBreakByClipping;
     [self sd_addSubviews:@[self.tipLabel]];

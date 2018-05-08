@@ -30,12 +30,16 @@
     }
     return _contentLayout;
 }
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self showNavigationBar];
+    [self hideNVBarShadow];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"充值";
-    [self showNavigationBar];
-    [self hideNVBarShadow];
     [self configSubviews];
 }
 

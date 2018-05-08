@@ -22,7 +22,20 @@
     self.bookBrief.textColor =Color(@"#999999");
     self.bookBrief.fnt(13).str(@"宋书航某天意外的加入了一个资深仙侠中二病资深患者聊天群，里面群友都以“道友”相称");
     self.headImage = [UIImageView new];
-    self.authorName =Label.fnt(11).color(@"#999999").str(@"流川枫");
+    self.headImage.backgroundColor = [UIColor redColor];
+    self.authorName = Label.fnt(11).color(@"#999999").str(@"流川枫");
+    self.scoreLabel = Label.fnt(10).color(@"#999999").str(@"9.5分");
+    self.scoreLabel.layer.borderWidth = 0.5;
+    self.scoreLabel.layer.borderColor = Color(@"#999999").CGColor;
+    self.scoreLabel.textAlignment = NSTextAlignmentCenter;
+    self.textNumberLabel = Label.fnt(10).color(@"#999999").str(@"100万字");
+    self.textNumberLabel.textAlignment = NSTextAlignmentCenter;
+    self.textNumberLabel.layer.borderWidth = 0.5;
+    self.textNumberLabel.layer.borderColor = Color(@"#999999").CGColor;
+    self.classifyLabel = Label.fnt(10).color(@"#999999").str(@"都市生活");
+    self.classifyLabel.textAlignment = NSTextAlignmentCenter;
+    self.classifyLabel.layer.borderWidth = 0.5;
+    self.classifyLabel.layer.borderColor = Color(@"#999999").CGColor;
     self.leftItem = [RCChargeSigleBookMessageView new];
     self.rightItem = [RCChargeSigleBookMessageView new];
 //    self.seeMoreBtn = [JCQMUIFillButton QMUIFillButtonBlueWithTitle:@"查看更多"];
@@ -31,7 +44,7 @@
 //    self.seeMoreBtn.cornerRadius = 0;
     UIView *paddingView = [UIView new];
     paddingView.backgroundColor = DEFAULT_BG_COLOR;
-    [self sd_addSubviews:@[self.headTitle,self.bookImageView,self.bookName,self.bookBrief,self.headImage,self.authorName,self.leftItem,self.rightItem,paddingView]];
+    [self sd_addSubviews:@[self.headTitle,self.bookImageView,self.bookName,self.bookBrief,self.headImage,self.authorName,self.scoreLabel,self.textNumberLabel,self.classifyLabel,self.leftItem,self.rightItem,paddingView]];
     self.headTitle.sd_layout
     .leftSpaceToView(self, 15)
     .rightSpaceToView(self, 15)
@@ -67,6 +80,24 @@
     .centerYEqualToView(self.headImage)
     .rightSpaceToView(self, 15)
     .heightIs(12.5);
+    
+    self.scoreLabel.sd_layout
+    .rightSpaceToView(self, 17)
+    .centerYEqualToView(self.authorName)
+    .heightIs(12.5)
+    .widthIs(46);
+    
+    self.textNumberLabel.sd_layout
+    .rightSpaceToView(self.scoreLabel, 5)
+    .centerYEqualToView(self.authorName)
+    .heightIs(12.5)
+    .widthIs(46);
+    
+    self.classifyLabel.sd_layout
+    .rightSpaceToView(self.textNumberLabel, 5)
+    .centerYEqualToView(self.authorName)
+    .heightIs(12.5)
+    .widthIs(46);
     
     self.leftItem.sd_layout
     .leftEqualToView(self)
@@ -107,6 +138,7 @@
     self.bookBrief.textColor =Color(@"#999999");
     self.bookBrief.fnt(13).str(@"宋书航某天意外的加入了一个资深仙侠中二病资深患者聊天群，里面群友都以“道友”相称");
     self.headImage = [UIImageView new];
+    self.headImage.backgroundColor = [UIColor redColor];
     self.authorName =Label.fnt(11).color(@"#999999").str(@"流川枫");
     self.bookImageView = [UIImageView new];
     self.bookImageView.backgroundColor = ThemeColor;

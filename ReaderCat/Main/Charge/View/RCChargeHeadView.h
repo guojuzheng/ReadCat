@@ -19,6 +19,9 @@
 @property (nonatomic, strong) RCChargeSigleBookMessageView     *leftItem;
 @property (nonatomic, strong) RCChargeSigleBookMessageView     *rightItem;
 @property (nonatomic, strong) JCQMUIFillButton                 *seeMoreBtn;
+@property (nonatomic, strong) UILabel                          *classifyLabel;
+@property (nonatomic, strong) UILabel                          *textNumberLabel;
+@property (nonatomic, strong) UILabel                          *scoreLabel;
 @end
 
 @interface RCChargeSigleBookMessageView : BaseView
