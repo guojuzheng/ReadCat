@@ -8,17 +8,19 @@
 
 #import "RCPurchaseMoneyView.h"
 @interface RCPurchaseMoneyView()<UICollectionViewDelegate,UICollectionViewDataSource>
+@property (nonatomic, strong) NSIndexPath        *selectedIndex;
 @end
 @implementation RCPurchaseMoneyView
 
 - (void)loadSubViews {
     self.backgroundColor = WhiteColor;
+    self.selectedIndex = [NSIndexPath indexPathForItem:-1 inSection:0];
     self.viewTitle =  Label.fnt(14).color(@"#000000").str(@"请选择充值金额");
     self.rightTitle = Label.fnt(10).color(@"#999999").str(@"1元=100阅读币");
     self.rightTitle.textAlignment = NSTextAlignmentRight;
     self.tipView = [UITextView new];
     self.tipView.textAlignment = NSTextAlignmentJustified;
-    self.tipView.fnt(10).color(@"#999999").str(@"通知：若您点击微信支付报错或者没有反应，请点击微信扫码支付，然 后再微信内长按二维码进行支付。如仍不能解决问题，请直接给我们微 信服务号“阅读猫”留言解决，或添加我们客服QQ：848317996");
+    self.tipView.fnt(10).color(@"#999999").str(@"通知：若您点击微信支付报错或者没有反应，请点击微信扫码支付，然后再微信内长按二维码进行支付。如仍不能解决问题，请直接给我们微信服务号“阅读猫”留言解决，或添加我们客服QQ：848317996");
     
     
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
@@ -53,6 +55,7 @@
     .rightSpaceToView(self, 30)
     .topSpaceToView(self.moneyCollectionView, 10)
     .heightIs(60);
+    
 }
 
 #pragma mark  设置CollectionView的组数
@@ -72,14 +75,13 @@
     static NSString *identify = @"cell";
     RCPurchaseMoneyCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identify forIndexPath:indexPath];
     cell.topLabel.text = @"500元";
-//    cell.FQNumberLabel.text = self.numberArray[indexPath.row];
-//    if (self.selectedIndexPath == indexPath) {
-//        cell.FQNumberLabel.layer.borderColor = CircleBlueColor.CGColor;
-//        cell.FQNumberLabel.textColor = CircleBlueColor;
-//    } else {
-//        cell.FQNumberLabel.layer.borderColor = Color(@"#bfbfbf").CGColor;
-//        cell.FQNumberLabel.textColor = Color(@"#bfbfbf");
-//    }
+    if (indexPath.item == self.selectedIndex.item) {
+        cell.backgroundColor = ThemeColor;
+        cell.layer.borderColor = Color(BlackColor).CGColor;
+    } else {
+        cell.backgroundColor = WhiteColor;
+        cell.layer.borderColor = Color(@"#999999").CGColor;
+    }
     return cell;
 }
 #pragma mark  定义每个UICollectionView的大小
@@ -103,6 +105,16 @@
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
     return 10;
 }
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.selectedIndex.item == indexPath.item) {
+        self.selectedIndex = [NSIndexPath indexPathForItem:-1 inSection:0];
+    } else {
+        self.selectedIndex = indexPath;
+    }
+    [self.moneyCollectionView reloadData];
+}
+
 @end
 
 
@@ -116,10 +128,10 @@
     return self;
 }
 - (void)configSubviews {
-    self.backgroundColor = ThemeColor;
+    self.backgroundColor = WhiteColor;
     self.layer.cornerRadius = 4;
     self.layer.masksToBounds = YES;
-    self.layer.borderColor = Color(@"#000000").CGColor;
+    self.layer.borderColor = Color(@"#999999").CGColor;
     self.layer.borderWidth = 1;
     
     self.topLabel = Label.fnt(14).color(@"#000000").str(@"100元");

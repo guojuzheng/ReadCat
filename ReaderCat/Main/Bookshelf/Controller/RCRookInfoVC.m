@@ -114,11 +114,28 @@
             return cell;
         } else if (indexPath.row == 3 || indexPath.row == 4 || indexPath.row == 5){
             RCBookInfoItemCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RCBookInfoItemCell"];
-            cell.leftLabel.text = @"上次读到:";
-            cell.rightLabel.text = @"没有您的记录哦";
+            NSString *leftString = @"";
+            NSString *rightString = @"";
+            if (indexPath.row == 3) {
+                leftString = @"上次读到:";
+                rightString = @"没有您的记录哦";
+            } else if (indexPath.row == 4) {
+                leftString = @"最近更新:";
+                rightString = @"130.盛大的婚礼";
+            } else if (indexPath.row == 5) {
+                leftString = @"投票推荐>>";
+                rightString = @"";
+            }
+            cell.leftLabel.text = leftString;
+            cell.rightLabel.text = rightString;
             return cell;
         } else if (indexPath.row == 7) {
             RCBookRewordCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RCBookRewordCell"];
+            cell.moreBtn.onClick(^{
+                RCRewardAuthorVC *rewardAuthorVC = [RCRewardAuthorVC new];
+                rewardAuthorVC.selectedIndex = 0;
+                [self pushVC:rewardAuthorVC];
+            });
             return cell;
         } else {
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
@@ -128,11 +145,21 @@
     } else if (self.flag == 1) {
         if (indexPath.row == 0 || indexPath.row == 1) {
             RCBookInfoItemCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RCBookInfoItemCell"];
-            cell.leftLabel.text = @"上次读到:";
-            cell.rightLabel.text = @"没有您的记录哦";
+            NSString *leftString = @"";
+            NSString *rightString = @"";
+            if (indexPath.row == 0) {
+                leftString = @"上次读到:";
+                rightString = @"没有您的记录哦";
+            } else if (indexPath.row == 1) {
+                leftString = @"最近更新:";
+                rightString = @"130.盛大的婚礼";
+            }
+            cell.leftLabel.text = leftString;
+            cell.rightLabel.text = rightString;
             return cell;
         } else if (indexPath.row == 3 || indexPath.row == 4 || indexPath.row == 5 || indexPath.row == 6) {
             RCBookMenuCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RCBookMenuCell"];
+            cell.leftLabel.fnt(12);
             cell.leftLabel.text = @"35.她有一双隐形的翅膀";
             return cell;
         } else {
@@ -170,7 +197,7 @@
         } else if (indexPath.row == 1) {
             return 91;
         } else if (indexPath.row == 2 || indexPath.row == 6) {
-            return 10;
+            return 5;
         } else if (indexPath.row == 3 || indexPath.row == 4 || indexPath.row == 5) {
             return 41;
         } else if (indexPath.row == 7) {
@@ -178,7 +205,7 @@
         }
     } else if (self.flag == 1) {
         if (indexPath.row == 2) {
-            return 10;
+            return 5;
         } else {
             return 41;
         }
@@ -186,7 +213,7 @@
         if (indexPath.row == 0) {
             return 45;
         } else if (indexPath.row == 1) {
-            return 10;
+            return 5;
         } else if (indexPath.row == 2 || indexPath.row == 3) {
             return 90;
         }
@@ -214,6 +241,26 @@
     self.bottomMenu.joinBookshelf.onClick(^{});
 }
 
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.flag == 0) {
+        if (indexPath.row == 5) {
+            RCRewardAuthorVC *rewardAuthorVC = [RCRewardAuthorVC new];
+            rewardAuthorVC.selectedIndex = 1;
+            [self pushVC:rewardAuthorVC];
+        } else if (indexPath.row == 7) {
+    
+        }
+    } else if (self.flag == 1) {
+       
+    } else if (self.flag == 2) {
+        if (indexPath.row == 0) {
+            RCRewardAuthorVC *rewardAuthorVC = [RCRewardAuthorVC new];
+            rewardAuthorVC.selectedIndex = 0;
+            [self pushVC:rewardAuthorVC];
+        }
+    }
+}
 #pragma mark ================= 路由跳转 =================
 + (void)load{
     [super load];

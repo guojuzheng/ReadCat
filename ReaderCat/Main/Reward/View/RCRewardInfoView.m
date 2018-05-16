@@ -15,7 +15,6 @@
     self.bookImageView.backgroundColor = ThemeColor;
     self.bookName =Label.fnt(13).color(@"#010101").str(@"彼岸三世");
     self.rewardInfoItemView = [RCRewardInfoItemView new];
-    self.rewardInfoItemView.itemArray = @[@"",@""];
     self.tipView = Label.fnt(11).color(@"#999999").str(@"只差1阅读币即可超越前1名");
     [self sd_addSubviews:@[self.bookImageView,self.bookName,self.rewardInfoItemView,self.tipView]];
     self.bookImageView.sd_layout
@@ -43,4 +42,5 @@
     .heightIs(15);
     
 }
+
 @end

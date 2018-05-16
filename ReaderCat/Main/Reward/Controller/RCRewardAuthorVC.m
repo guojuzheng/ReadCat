@@ -40,6 +40,7 @@
         //适配iOS11 中table的底部
         AdjustsScrollViewInsetNever(self, _rewardTableView);
         self.tableHeadView = [RCRewardHeadView new];
+        self.tableHeadView.rewardInfoView.rewardInfoItemView.itemArray = @[@"",@"",@""];
         self.tableHeadView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 161);
         _rewardTableView.tableHeaderView = self.tableHeadView;
         self.tableHeadView.rewardCountView.rightButton.onClick(^{
@@ -48,6 +49,34 @@
         [self.view addSubview:_rewardTableView];
     }
     return _rewardTableView;
+}
+
+- (RCSegmentView *)segmentView {
+    if (!_segmentView) {
+        _segmentView = [RCSegmentView new];
+        [_segmentView setSegmentTitle:@[@"打赏",@"推荐票"]];
+        WeakifySelf();
+        _segmentView.segmentBlock = ^(NSInteger selectedIndex) {
+            if (selectedIndex == 0) {
+                weakSelf.flag = 0;
+                weakSelf.tableHeadView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 166);
+                weakSelf.rewardTableView.tableHeaderView = weakSelf.tableHeadView;
+            } else if (selectedIndex == 1) {
+                weakSelf.flag = 1;
+                weakSelf.tableBallotHeadView = [RCRewardBallotHead new];
+                weakSelf.tableBallotHeadView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 213);
+                weakSelf.rewardTableView.tableHeaderView = weakSelf.tableBallotHeadView;
+            }
+            [weakSelf.rewardTableView reloadData];
+        };
+        [self.view sd_addSubviews:@[_segmentView]];
+        _segmentView.sd_layout
+        .leftEqualToView(self.view)
+        .rightEqualToView(self.view)
+        .topEqualToView(self.view)
+        .heightIs(41);
+    }
+    return _segmentView;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -60,28 +89,7 @@
 
 - (void)configSubviews {
     self.flag = 0;
-    self.segmentView = [RCSegmentView new];
-    [self.segmentView setSegmentTitle:@[@"打赏",@"推荐票"]];
-    WeakifySelf();
-    self.segmentView.segmentBlock = ^(NSInteger selectedIndex) {
-        if (selectedIndex == 0) {
-            weakSelf.flag = 0;
-            weakSelf.tableHeadView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 166);
-            weakSelf.rewardTableView.tableHeaderView = weakSelf.tableHeadView;
-        } else if (selectedIndex == 1) {
-            weakSelf.flag = 1;
-            weakSelf.tableBallotHeadView = [RCRewardBallotHead new];
-            weakSelf.tableBallotHeadView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 213);
-            weakSelf.rewardTableView.tableHeaderView = weakSelf.tableBallotHeadView;
-        }
-        [weakSelf.rewardTableView reloadData];
-    };
-    [self.view sd_addSubviews:@[self.segmentView]];
-    self.segmentView.sd_layout
-    .leftEqualToView(self.view)
-    .rightEqualToView(self.view)
-    .topEqualToView(self.view)
-    .heightIs(41);
+    
     
     [self.rewardTableView assembly:^(RCRewardInfoCell *cell, NSString *model, NSIndexPath *indexPath) {
         cell.nameLabel.text = model;
@@ -108,14 +116,26 @@
         }
     }];
     [[self.rewardTableView setViewForHeaderInSection:^UIView *(UITableView *tableView, NSInteger section) {
+        UIView *bgView = [UIView new];
+        UILabel *lineView = Label;
+        lineView.backgroundColor = DEFAULT_BG_COLOR;
+        lineView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 5);
+        [bgView addSubview:lineView];
         UILabel *sectionTitle = Label.fnt(14).color(@"#010101").str(@"    最近打赏");
         sectionTitle.backgroundColor = WhiteColor;
-        return sectionTitle;
-    }] setSectionHeaderHeight:40];
+        sectionTitle.frame = CGRectMake(0, 5, SCREEN_WIDTH, 40);
+        [bgView addSubview:sectionTitle];
+        return bgView;
+    }] setSectionHeaderHeight:45];
     self.rewardTableView.data = [NSArray arrayWithObjects:@"小红",@"唐家三少", nil];
     [self.rewardTableView reloadData];
     
 }
+
+- (void)setSelectedIndex:(NSInteger)selectedIndex {
+    self.segmentView.selectedIndex = selectedIndex;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

@@ -14,4 +14,7 @@
 @property (nonatomic, strong) UILabel                          *bookBrief;
 @property (nonatomic, strong) UIImageView                      *headImage;
 @property (nonatomic, strong) UILabel                          *authorName;
+@property (nonatomic, strong) UILabel                          *classifyLabel;
+@property (nonatomic, strong) UILabel                          *textNumberLabel;
+@property (nonatomic, strong) UILabel                          *scoreLabel;
 @end

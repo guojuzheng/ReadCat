@@ -61,6 +61,7 @@
     self.purchaseWayView.myTop = 5;
     self.purchaseWayView.myHeight = 185;
     [self.contentLayout addSubview:self.purchaseWayView];
+    [self dealAction];
     
     
 }
@@ -73,6 +74,13 @@
         return vc;
     }];
 }
+
+- (void)dealAction {
+    self.purchaseWayView.alipayBtn.onClick(^{});
+    self.purchaseWayView.wxPayBtn.onClick(^{});
+    self.purchaseWayView.wxScanBtn.onClick(^{});
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

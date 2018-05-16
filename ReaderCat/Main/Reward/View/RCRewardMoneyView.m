@@ -9,11 +9,13 @@
 #import "RCRewardMoneyView.h"
 
 @interface RCRewardMoneyView()<UICollectionViewDelegate,UICollectionViewDataSource>
+@property (nonatomic, strong) NSIndexPath        *selectedIndex;
 @end
 @implementation RCRewardMoneyView
 
 - (void)loadSubViews {
     self.backgroundColor = WhiteColor;
+    self.selectedIndex = [NSIndexPath indexPathForItem:-1 inSection:0];
      self.viewTitle =  Label.fnt(14).color(@"#000000").str(@"请选择打赏金额");
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
@@ -55,14 +57,13 @@
     static NSString *identify = @"cell";
     RCRewardMoneyCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identify forIndexPath:indexPath];
     cell.cellTextLabel.text = @"100阅读币";
-    //    cell.FQNumberLabel.text = self.numberArray[indexPath.row];
-    //    if (self.selectedIndexPath == indexPath) {
-    //        cell.FQNumberLabel.layer.borderColor = CircleBlueColor.CGColor;
-    //        cell.FQNumberLabel.textColor = CircleBlueColor;
-    //    } else {
-    //        cell.FQNumberLabel.layer.borderColor = Color(@"#bfbfbf").CGColor;
-    //        cell.FQNumberLabel.textColor = Color(@"#bfbfbf");
-    //    }
+    if (self.selectedIndex.item == indexPath.item) {
+        cell.backgroundColor = ThemeColor;
+        cell.layer.borderColor = BlackColor.CGColor;
+    } else {
+        cell.backgroundColor = WhiteColor;
+        cell.layer.borderColor = Color(@"#999999").CGColor;
+    }
     return cell;
 }
 #pragma mark  定义每个UICollectionView的大小
@@ -86,6 +87,15 @@
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
     return 10;
 }
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.selectedIndex.item == indexPath.item) {
+        self.selectedIndex = [NSIndexPath indexPathForItem:-1 inSection:0];
+    } else {
+        self.selectedIndex = indexPath;
+    }
+    [self.moneyCollectionView reloadData];
+}
 @end
 @implementation RCRewardMoneyCell
 - (instancetype)initWithFrame:(CGRect)frame
@@ -97,10 +107,10 @@
     return self;
 }
 - (void)configSubviews {
-    self.backgroundColor = ThemeColor;
+    self.backgroundColor = WhiteColor;
     self.layer.cornerRadius = 4;
     self.layer.masksToBounds = YES;
-    self.layer.borderColor = Color(@"#000000").CGColor;
+    self.layer.borderColor = Color(@"#999999").CGColor;
     self.layer.borderWidth = 1;
     self.cellTextLabel = Label.fnt(14).color(@"#000000");
     self.cellTextLabel.textAlignment = NSTextAlignmentCenter;

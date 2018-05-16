@@ -11,4 +11,9 @@
 @interface LoginWayView : BaseView
 @property (nonatomic, strong)UIButton *qqLogin;
 @property (nonatomic, strong)UIButton *wxLogin;
+@property (nonatomic, strong)UIButton *readerBtn;
+@property (nonatomic, strong)UILabel  *leftTipLab;
+@property (nonatomic, strong)UILabel  *centerTipLab;
+@property (nonatomic, strong)UIButton *leftProtocalBtn;
+@property (nonatomic, strong)UIButton *rightProtocalBtn;
 @end

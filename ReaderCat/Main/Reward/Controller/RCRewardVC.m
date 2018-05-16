@@ -49,6 +49,7 @@
     self.rewardInfoView.myTop = 0;
     self.rewardInfoView.myHeight = 108;
     [self.contentLayout addSubview:self.rewardInfoView];
+    self.rewardInfoView.rewardInfoItemView.itemArray = @[@"",@""];
     
     self.accountView = [RCRewardCountView new];
     [self.accountView.rightButton setTitle:@"充值" forState:UIControlStateNormal];

@@ -20,7 +20,7 @@
 @implementation RCChargeVC
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.navigationController.navigationBar.hidden = YES;
+    self.navigationController.navigationBar.hidden = NO;
     [self loadNewData];
 }
 - (void)viewWillDisappear:(BOOL)animated {
@@ -37,15 +37,17 @@
 -(UITableView *)myBookshelfList{
     if(!_myBookshelfList){
         
-        _myBookshelfList = [[UITableView alloc] initWithFrame:CGRectMake(0, StatusBarHeight, SCREEN_WIDTH, SCREEN_HEIGHT-StatusBarHeight-NavigationBarHeight) style:UITableViewStyleGrouped];
+        _myBookshelfList = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-StatusBarHeight-NavigationBarHeight) style:UITableViewStyleGrouped];
         _myBookshelfList.backgroundColor = DEFAULT_BG_COLOR;
         _myBookshelfList.separatorStyle  = UITableViewCellSeparatorStyleNone;
         //适配iOS11 中table的底部
         AdjustsScrollViewInsetNever(self, _myBookshelfList);
         RCChargeHeadView *headView =[RCChargeHeadView new];
+        headView.onClick(^{
+            [self.navigationController pushViewController:[RCRookInfoVC new] animated:YES];
+        });
         headView.frame = CGRectMake(0, 0, SCREEN_WIDTH,285);
         _myBookshelfList.tableHeaderView = headView;
-        
         [self.view addSubview:_myBookshelfList];
     }
     return _myBookshelfList;
@@ -53,10 +55,30 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"免费";
     [self configSubviews];
-    self.dataArray = [NSMutableArray arrayWithObjects:@"1",@"2",@"3",@"4",@"5", nil];
+    [self addRefresh];
+    self.dataArray = [NSMutableArray arrayWithObjects:@"1",@"2",@"3",@"4",@"5",@"6", nil];
 }
 
+- (void)addRefresh {
+    WeakifySelf();
+    self.myBookshelfList.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [weakSelf loadNewData];
+        [weakSelf.myBookshelfList.mj_header endRefreshing];
+    }];
+    MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        [weakSelf loadMoreData];
+        [weakSelf.myBookshelfList.mj_footer endRefreshing];
+    }];
+    [footer setTitle:@"上拉加载更多数据" forState:MJRefreshStateIdle];
+    [footer setTitle:@"正在加载更多数据" forState:MJRefreshStateRefreshing];
+    [footer setTitle:@"暂无更多数据" forState:MJRefreshStateNoMoreData];
+    footer.stateLabel.fnt(10);
+    footer.stateLabel.color(@"#999999");
+    self.myBookshelfList.mj_footer = footer;
+    [self.myBookshelfList.mj_header beginRefreshing];
+}
 - (void)configSubviews {
     [self.myBookshelfList assembly:^(RCChargeCell *cell, NSString *model, NSIndexPath *indexPath) {
         cell.bookName.text = model;
@@ -87,12 +109,18 @@
         return sectionTitle;
     }] setSectionHeaderHeight:40];
     
-    self.myBookshelfList.data = [NSArray arrayWithObjects:@"西游记",@"水浒传",@"三国演义",@"红楼梦",@"围城", nil];
+    self.myBookshelfList.data = [NSArray arrayWithObjects:@"西游记",@"水浒传",@"三国演义",@"红楼梦",@"围城",@"追风筝的人", nil];
     [self.myBookshelfList reloadData];
 }
+
 - (void)loadNewData {
     
 }
+
+- (void)loadMoreData {
+    
+}
+
 
 #pragma mark ================= 路由跳转 =================
 + (void)load{

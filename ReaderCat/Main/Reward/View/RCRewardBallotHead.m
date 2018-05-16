@@ -23,6 +23,7 @@
     UIView *line = [UIView new];
     line.backgroundColor = DEFAULT_BG_COLOR;
     self.rewardInfoView = [RCRewardInfoView new];
+    self.rewardInfoView.rewardInfoItemView.itemArray = @[@"",@""];
     [self sd_addSubviews:@[line,self.rewardInfoView,self.lineA,self.lineB,self.lineC]];
     line.sd_layout
     .leftEqualToView(self)

@@ -146,7 +146,7 @@
 -(void)setBlueNavigationBar{
     
     [self.navigationController.navigationBar setBackgroundImage:[UIImage qmui_imageWithColor:ThemeColor] forBarMetrics:UIBarMetricsDefault];
-    [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:18],NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:18],NSForegroundColorAttributeName:[UIColor blackColor]}];
     [self setBackButtonItemWhite];
 }
 

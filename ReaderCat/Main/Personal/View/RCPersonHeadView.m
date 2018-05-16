@@ -46,7 +46,6 @@
     _goodNumber.backgroundColor = [UIColor clearColor];
     
     _countView = [RCRewardCountView new];
-    _countView.leftLabel.text = @"账户:9阅读币";
     [_countView.rightButton setTitle:@"充值" forState:UIControlStateNormal];
     
     [self sd_addSubviews:@[title,_bgImageView, _headView,_nameLabel,_vipImageView,_editMessageBtn,_readTime,_goodNumber,_countView]];

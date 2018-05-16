@@ -42,12 +42,18 @@
 - (void)configSubviews {
     self.questionA = [RCInputView new];
     [self.questionA setLeftImage:@"" placeHolder:@"你最喜欢的书?"];
+    self.questionA.inputtextfield.text = @"你最喜欢的书?";
     self.questionB = [RCInputView new];
-    [self.questionB setLeftImage:@"" placeHolder:@"你最喜欢的书?"];
+    [self.questionB setLeftImage:@"" placeHolder:@"你最喜欢的数字?"];
+    self.questionB.inputtextfield.text = @"你最喜欢的数字?";
     self.questionC = [RCInputView new];
-    [self.questionC setLeftImage:@"" placeHolder:@"你最喜欢的书?"];
+    [self.questionC setLeftImage:@"" placeHolder:@"你能记住的密码?"];
+    self.questionC.inputtextfield.text = @"你能记住的密码?";
     self.answer = [RCInputView new];
     [self.answer setLeftImage:@"" placeHolder:@"请输入答案"];
+    self.questionA.inputtextfield.userInteractionEnabled =
+    self.questionB.inputtextfield.userInteractionEnabled =
+    self.questionC.inputtextfield.userInteractionEnabled = NO;
     self.questionA.myHorzMargin = 30;
     self.questionA.myTop = 50;
     self.questionA.myHeight = 51;

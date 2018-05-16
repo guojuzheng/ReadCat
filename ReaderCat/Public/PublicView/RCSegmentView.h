@@ -9,7 +9,8 @@
 #import "BaseView.h"
 typedef void (^ segmentBlock) (NSInteger selectedIndex);
 @interface RCSegmentView : BaseView
-@property (nonatomic, strong)UISegmentedControl *segmentSelecter;
+@property (nonatomic, strong) UISegmentedControl *segmentSelecter;
+@property (nonatomic, copy)   segmentBlock       segmentBlock;
+@property (nonatomic, assign) NSInteger          selectedIndex;
 - (void)setSegmentTitle:(NSArray *)titleArray;
-@property (nonatomic, copy)segmentBlock segmentBlock;
 @end

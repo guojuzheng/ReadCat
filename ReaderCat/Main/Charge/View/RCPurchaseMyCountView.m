@@ -12,7 +12,11 @@
 - (void)loadSubViews {
     self.backgroundColor = WhiteColor;
     self.leftTitle = Label.fnt(14).color(@"#000000").str(@"我的账户:");
-    self.rightTitle = Label.fnt(14).color(ThemeColor).str(@"0阅读币");
+    self.rightTitle = Label.fnt(14);
+    NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:@"19阅读币"];
+    [attrStr addAttribute:NSForegroundColorAttributeName value:Color(ThemeColor) range:NSMakeRange(0, attrStr.length-3)];
+    [attrStr addAttribute:NSForegroundColorAttributeName value:Color(BlackColor) range:NSMakeRange(attrStr.length-3, 3)];
+    self.rightTitle.attributedText = attrStr;
     self.rightTitle.textAlignment = NSTextAlignmentRight;
     [self sd_addSubviews:@[self.leftTitle,self.rightTitle]];
     self.leftTitle.sd_layout

@@ -18,6 +18,7 @@
 #import "RCSearchBookVC.h"
 #import "RCBookStoreVC.h"
 #import "RCClassify.h"
+#import "RCFlitterVC.h"
 
 @interface HomeIndexVC ()<UICollectionViewDelegate, UICollectionViewDataSource, CustomCollectionViewDelegateFlowLayout>
 @property (nonatomic, strong) RCTopView *customNavBar;
@@ -126,7 +127,9 @@
     if (indexPath.section == 1 || indexPath.section == 2) {
         [self.navigationController pushViewController:[RCRookInfoVC new] animated:YES];
     } else if (indexPath.section == 3) {
-        [self.navigationController pushViewController:[RCClassify new] animated:YES];
+        RCFlitterVC *flitterVC = [RCFlitterVC new];
+        flitterVC.fliterTitle = @"玄幻";
+        [self.navigationController pushViewController:flitterVC animated:YES];
     }
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {

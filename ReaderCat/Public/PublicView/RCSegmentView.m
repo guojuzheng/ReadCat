@@ -35,4 +35,12 @@
         self.segmentBlock(thisSegment.selectedSegmentIndex);
     }
 }
+
+- (void)setSelectedIndex:(NSInteger)selectedIndex {
+    self.segmentSelecter.selectedSegmentIndex = selectedIndex;
+    if (self.segmentBlock) {
+        self.segmentBlock(selectedIndex);
+    }
+}
+
 @end

@@ -20,9 +20,9 @@
     .leftSpaceToView(self, 27)
     .topEqualToView(self)
     .bottomEqualToView(self)
-    .widthIs(60);
+    .widthIs(65);
     self.rightLabel.sd_layout
-    .leftSpaceToView(self.leftLabel, 5)
+    .leftSpaceToView(self.leftLabel, 0)
     .rightSpaceToView(self, 26)
     .topEqualToView(self)
     .bottomEqualToView(self);
